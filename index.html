@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <title>Bloxy Hub</title>
+
+        <meta charset = "utf-8">
+		<link rel = "shortcut icon" type = "image/x-icon" href="Logo.ico" />
+
+		<meta name = "author" content = "Bloxy Hub" />
+		<meta name = "description" content = "Bloxy Hub" />
+		<meta name = "keywords" content = "Bloxy, Hub, BloxyHub, script, lua, synapse" />
+
+		<meta property = "og:title" content = "Bloxy Hub" />
+		<meta property = "og:description" content = "Official website for Bloxy Hub" />
+		<meta property = "og:type" content = "website" />
+		<meta property = "og:url" content = "scripterkidsdev.github.io" />
+		<meta property = "og:secure_url" content = "scripterkidsdev.github.io">
+		<meta property = "og:image" content = "https://i.imgur.com/oMkMnfs.png" />
+
+        <style>
+            body {
+				background-color: rgb(25, 25, 25);
+                color: white;
+                font-family: "Trebuchet MS";
+                background-image: url(Background.png);
+				background-attachment: fixed;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+
+            body::-webkit-scrollbar {
+                width: 12px;
+            }
+      
+            body::-webkit-scrollbar-thumb {
+                background-color: rgb(80, 80, 80);
+            }
+
+            #bloxImage {
+                margin-top: 20px;
+                height: 90px;
+            }
+
+            #scriptBtn {
+                color: rgb(255, 255, 255);
+                background-color: rgb(45, 45, 45);
+                margin-top: 45px;
+                border: 0px;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 650px;
+                height: 35px;
+            }
+
+            #copyPopup {
+                color: rgb(0, 0, 0);
+                background-color: rgb(255, 255, 255);
+                border: 0px;
+                border-radius: 4px;
+                text-align: center;
+                position: absolute;
+                display: none;
+                width: 150px;
+                height: 35px;
+            }
+
+            #gamesBtn {
+                background-color: rgb(45, 45, 45); 
+                color: rgb(255, 255, 255); 
+                font-size: large; 
+                border: 0px; 
+                border-radius: 2px;
+                cursor: pointer; 
+                width: 100px; 
+                height: 50px;
+            }
+
+            #discordBtn {
+                background-color: rgb(114, 137, 218); 
+                color: rgb(255, 255, 255); 
+                font-size: large; 
+                border: 0px; 
+                border-radius: 2px;
+                cursor: pointer; 
+                width: 100px; 
+                height: 50px;
+            }
+
+            #detailLine {
+                margin-top: 45px;
+                border: 1px solid rgb(0, 0, 0);
+                width: 500px;
+                height: 0px;
+            }
+
+            #copyBtn:hover {
+                background-color: rgb(70, 70, 70);
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" value="Copied to clipboard!" readonly id="copyPopup">
+        <center>
+            <img src="Logo.ico" alt="Bloxy Logo" id="bloxyImage">
+            <br>
+            <button id="scriptBtn"><span style="color: rgb(24, 127, 202);">loadstring</span>(game:<span style="color: rgb(24, 127, 202);">HttpGet</span>(<span style="color: rgb(8, 108, 179);">"</span><span style="color: rgb(5, 62, 102);">https://raw.githubusercontent.com/bloxyhub/sus/main/bloxy.lua</span><span style="color: rgb(8, 108, 179);">"</span>))();</button>
+            <br>
+            <div id="detailLine"></div>
+            <br>
+            <h1 style="font-family: monospace;">What is Bloxy Hub?</h1>
+            <i style="color: rgb(180, 180, 180);"><span style="color: rgb(153, 95, 39);">Bloxy</span> <span style="color: rgb(255, 255, 255);">Hub</span> is a <span style="color: rgb(0, 192, 80);">free</span> Roblox script hub developed by <span style="color: rgb(171, 32, 32);">Lebroyn</span> and <span style="color: rgb(21, 153, 193);">Mustafa</span>.<br>It currently has 1 games. It is made to be executed on Roblox exploits. It works on the exploits that are shown below.</i>
+            <div id="detailLine"></div>
+            <br>
+            <h1 style="font-family: monospace;">Exploits</h1>
+            <i style="color: rgb(180, 180, 180);"><a href="https://x.synapse.to/" target = "_blank" style="color: rgb(0, 0, 0);">Synapse X</a><br><br><a href="https://elymltd.selly.store/product/a6576d71/" target = "_blank" style="color: rgb(0, 0, 0);">Sentinel</a><br><br>
+            <div id="detailLine"></div>
+            <br>
+            <h1 style = "color: rgb(255, 255, 255)" >Games</h1>
+            <button id="gamesBtn">VIEW</button>
+            <div id="detailLine"></div>
+            <br>
+            <h1 style="font-family: monospace; color: rgb(114, 137, 218);">Discord</h1>
+            <button id="discordBtn">JOIN</button>
+            <br>
+            <br>
+            <br>
+        </center>
+
+        <script type="text/javascript">
+            const scriptBtn = document.getElementById("scriptBtn");
+            const copyPopup = document.getElementById("copyPopup");
+            const gamesBtn = document.getElementById("gamesBtn");
+            const discordBtn = document.getElementById("discordBtn");
+
+            scriptBtn.addEventListener("click", () => {
+                const scriptBox = document.createElement("textarea");
+                scriptBox.value = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxyhub/sus/main/bloxy.lua",true))()';
+                document.body.appendChild(scriptBox);
+                scriptBox.select();
+                document.execCommand("copy");
+                document.body.removeChild(scriptBox);
+                copyPopup.style.display = "block";
+                setTimeout(() => {copyPopup.style.display = "none";}, 1000);
+            });
+
+            gamesBtn.addEventListener("click", () => {
+                window.open("games.html");
+            });
+
+            discordBtn.addEventListener("click", () => {
+                window.open("https://discord.gg/DxUqXkufsW");
+            });
+        </script>
+    </body>
+
+</html>
