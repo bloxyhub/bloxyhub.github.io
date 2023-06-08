@@ -81,41 +81,38 @@
 	<div class="avatarWrapperNormal-26WQIb avatarWrapper-3r9PdD avatarPositionNormal-aZjAsn " role="button" tabindex="0" style="left:105px;">
 	<div class="avatar-37jOim wrapper-3t9DeA" role="img" aria-label="Mustafa Portfolio 3" aria-hidden="false" style="width: 80px; height: 80px;">
 
-	  <div class="avatarStack-2Dr8S9">
-	    <img src="https://api.lanyard.rest/1088442497233080371.png" alt=" " class="avatar-VxgULZ dnd" aria-hidden="true" id="discord_avatar">
-	    <p id="discord_status"></p>
+	 <div class="avatarStack-2Dr8S9">
+    <img src="https://api.lanyard.rest/1088442497233080371.png" alt=" " class="avatar-VxgULZ" aria-hidden="true" id="discord_avatar">
+  </div>
+
 	  </div>
-		</div>
-		 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	  <script>
-	    function getDiscordPresence() {
-	      axios.get('https://api.lanyard.rest/v1/users/1088442497233080371')
-		.then((response) => {
-		  const data = response.data;
-		  console.log(data);
 
+	   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function getDiscordPresence() {
+      axios.get('https://api.lanyard.rest/v1/users/1088442497233080371')
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
 
-		  const status = data.data.discord_status;
+          const status = data.data.discord_status;
 
-		  const statusElement = document.getElementById('discord_status');
+          const avatarElement = document.getElementById('discord_avatar');
 
+          avatarElement.classList.remove('online', 'idle', 'dnd', 'offline');
 
-		  statusElement.textContent = status || 'No status available';
+          const statusClass = status ? status.toLowerCase() : 'offline';
+          avatarElement.classList.add(statusClass);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
 
+    getDiscordPresence();
 
-		  const statusClass = status ? status.toLowerCase() : 'offline';
-		})
-		.catch((error) => {
-		  console.error(error);
-		});
-	    }
-
-
-	    getDiscordPresence();
-
-
-	    setInterval(getDiscordPresence, 1000);
-	  </script>
+    setInterval(getDiscordPresence, 1000);
+  </script>
 	</div>
 	<div class="headerTop-3vNv-a" style="text-align: center;">
 	<div class="headerText-1vVs-U">
